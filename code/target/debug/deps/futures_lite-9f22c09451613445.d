@@ -1,0 +1,11 @@
+/home/sergey/Desktop/rustdoc/offchain-ipfs-manual/code/target/debug/deps/futures_lite-9f22c09451613445.rmeta: /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-lite-1.11.1/src/lib.rs /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-lite-1.11.1/src/future.rs /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-lite-1.11.1/src/prelude.rs /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-lite-1.11.1/src/stream.rs /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-lite-1.11.1/src/io.rs
+
+/home/sergey/Desktop/rustdoc/offchain-ipfs-manual/code/target/debug/deps/libfutures_lite-9f22c09451613445.rlib: /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-lite-1.11.1/src/lib.rs /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-lite-1.11.1/src/future.rs /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-lite-1.11.1/src/prelude.rs /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-lite-1.11.1/src/stream.rs /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-lite-1.11.1/src/io.rs
+
+/home/sergey/Desktop/rustdoc/offchain-ipfs-manual/code/target/debug/deps/futures_lite-9f22c09451613445.d: /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-lite-1.11.1/src/lib.rs /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-lite-1.11.1/src/future.rs /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-lite-1.11.1/src/prelude.rs /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-lite-1.11.1/src/stream.rs /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-lite-1.11.1/src/io.rs
+
+/home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-lite-1.11.1/src/lib.rs:
+/home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-lite-1.11.1/src/future.rs:
+/home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-lite-1.11.1/src/prelude.rs:
+/home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-lite-1.11.1/src/stream.rs:
+/home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-lite-1.11.1/src/io.rs:

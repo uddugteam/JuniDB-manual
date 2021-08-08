@@ -1,0 +1,11 @@
+/home/sergey/Desktop/rustdoc/offchain-ipfs-manual/code/target/debug/deps/parity_multiaddr-ae1e7bd28f62b24c.rmeta: /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-multiaddr-0.9.2/src/lib.rs /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-multiaddr-0.9.2/src/protocol.rs /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-multiaddr-0.9.2/src/onion_addr.rs /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-multiaddr-0.9.2/src/errors.rs /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-multiaddr-0.9.2/src/from_url.rs
+
+/home/sergey/Desktop/rustdoc/offchain-ipfs-manual/code/target/debug/deps/libparity_multiaddr-ae1e7bd28f62b24c.rlib: /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-multiaddr-0.9.2/src/lib.rs /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-multiaddr-0.9.2/src/protocol.rs /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-multiaddr-0.9.2/src/onion_addr.rs /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-multiaddr-0.9.2/src/errors.rs /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-multiaddr-0.9.2/src/from_url.rs
+
+/home/sergey/Desktop/rustdoc/offchain-ipfs-manual/code/target/debug/deps/parity_multiaddr-ae1e7bd28f62b24c.d: /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-multiaddr-0.9.2/src/lib.rs /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-multiaddr-0.9.2/src/protocol.rs /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-multiaddr-0.9.2/src/onion_addr.rs /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-multiaddr-0.9.2/src/errors.rs /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-multiaddr-0.9.2/src/from_url.rs
+
+/home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-multiaddr-0.9.2/src/lib.rs:
+/home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-multiaddr-0.9.2/src/protocol.rs:
+/home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-multiaddr-0.9.2/src/onion_addr.rs:
+/home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-multiaddr-0.9.2/src/errors.rs:
+/home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/parity-multiaddr-0.9.2/src/from_url.rs:

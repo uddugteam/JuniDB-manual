@@ -1,0 +1,11 @@
+/home/sergey/Desktop/rustdoc/offchain-ipfs-manual/code/target/debug/deps/wasmi_validation-25f2ea035d83d1a2.rmeta: /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/wasmi-validation-0.3.0/src/lib.rs /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/wasmi-validation-0.3.0/src/stack.rs /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/wasmi-validation-0.3.0/src/context.rs /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/wasmi-validation-0.3.0/src/func.rs /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/wasmi-validation-0.3.0/src/util.rs
+
+/home/sergey/Desktop/rustdoc/offchain-ipfs-manual/code/target/debug/deps/libwasmi_validation-25f2ea035d83d1a2.rlib: /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/wasmi-validation-0.3.0/src/lib.rs /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/wasmi-validation-0.3.0/src/stack.rs /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/wasmi-validation-0.3.0/src/context.rs /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/wasmi-validation-0.3.0/src/func.rs /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/wasmi-validation-0.3.0/src/util.rs
+
+/home/sergey/Desktop/rustdoc/offchain-ipfs-manual/code/target/debug/deps/wasmi_validation-25f2ea035d83d1a2.d: /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/wasmi-validation-0.3.0/src/lib.rs /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/wasmi-validation-0.3.0/src/stack.rs /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/wasmi-validation-0.3.0/src/context.rs /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/wasmi-validation-0.3.0/src/func.rs /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/wasmi-validation-0.3.0/src/util.rs
+
+/home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/wasmi-validation-0.3.0/src/lib.rs:
+/home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/wasmi-validation-0.3.0/src/stack.rs:
+/home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/wasmi-validation-0.3.0/src/context.rs:
+/home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/wasmi-validation-0.3.0/src/func.rs:
+/home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/wasmi-validation-0.3.0/src/util.rs:

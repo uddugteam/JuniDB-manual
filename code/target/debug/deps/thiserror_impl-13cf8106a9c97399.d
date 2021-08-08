@@ -1,0 +1,11 @@
+/home/sergey/Desktop/rustdoc/offchain-ipfs-manual/code/target/debug/deps/libthiserror_impl-13cf8106a9c97399.so: /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.21/src/lib.rs /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.21/src/ast.rs /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.21/src/attr.rs /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.21/src/expand.rs /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.21/src/fmt.rs /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.21/src/prop.rs /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.21/src/valid.rs
+
+/home/sergey/Desktop/rustdoc/offchain-ipfs-manual/code/target/debug/deps/thiserror_impl-13cf8106a9c97399.d: /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.21/src/lib.rs /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.21/src/ast.rs /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.21/src/attr.rs /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.21/src/expand.rs /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.21/src/fmt.rs /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.21/src/prop.rs /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.21/src/valid.rs
+
+/home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.21/src/lib.rs:
+/home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.21/src/ast.rs:
+/home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.21/src/attr.rs:
+/home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.21/src/expand.rs:
+/home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.21/src/fmt.rs:
+/home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.21/src/prop.rs:
+/home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.21/src/valid.rs:

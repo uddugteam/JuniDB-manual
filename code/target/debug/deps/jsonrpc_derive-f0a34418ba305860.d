@@ -1,0 +1,11 @@
+/home/sergey/Desktop/rustdoc/offchain-ipfs-manual/code/target/debug/deps/libjsonrpc_derive-f0a34418ba305860.so: /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/jsonrpc-derive-15.1.0/src/lib.rs /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/jsonrpc-derive-15.1.0/src/options.rs /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/jsonrpc-derive-15.1.0/src/params_style.rs /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/jsonrpc-derive-15.1.0/src/rpc_attr.rs /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/jsonrpc-derive-15.1.0/src/rpc_trait.rs /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/jsonrpc-derive-15.1.0/src/to_client.rs /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/jsonrpc-derive-15.1.0/src/to_delegate.rs
+
+/home/sergey/Desktop/rustdoc/offchain-ipfs-manual/code/target/debug/deps/jsonrpc_derive-f0a34418ba305860.d: /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/jsonrpc-derive-15.1.0/src/lib.rs /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/jsonrpc-derive-15.1.0/src/options.rs /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/jsonrpc-derive-15.1.0/src/params_style.rs /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/jsonrpc-derive-15.1.0/src/rpc_attr.rs /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/jsonrpc-derive-15.1.0/src/rpc_trait.rs /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/jsonrpc-derive-15.1.0/src/to_client.rs /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/jsonrpc-derive-15.1.0/src/to_delegate.rs
+
+/home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/jsonrpc-derive-15.1.0/src/lib.rs:
+/home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/jsonrpc-derive-15.1.0/src/options.rs:
+/home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/jsonrpc-derive-15.1.0/src/params_style.rs:
+/home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/jsonrpc-derive-15.1.0/src/rpc_attr.rs:
+/home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/jsonrpc-derive-15.1.0/src/rpc_trait.rs:
+/home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/jsonrpc-derive-15.1.0/src/to_client.rs:
+/home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/jsonrpc-derive-15.1.0/src/to_delegate.rs:
