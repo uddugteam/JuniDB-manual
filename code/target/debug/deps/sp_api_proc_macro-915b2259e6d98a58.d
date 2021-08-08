@@ -1,0 +1,9 @@
+/home/sergey/Desktop/rustdoc/offchain-ipfs-manual/code/target/debug/deps/libsp_api_proc_macro-915b2259e6d98a58.so: /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/sp-api-proc-macro-2.0.0/src/lib.rs /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/sp-api-proc-macro-2.0.0/src/impl_runtime_apis.rs /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/sp-api-proc-macro-2.0.0/src/mock_impl_runtime_apis.rs /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/sp-api-proc-macro-2.0.0/src/decl_runtime_apis.rs /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/sp-api-proc-macro-2.0.0/src/utils.rs
+
+/home/sergey/Desktop/rustdoc/offchain-ipfs-manual/code/target/debug/deps/sp_api_proc_macro-915b2259e6d98a58.d: /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/sp-api-proc-macro-2.0.0/src/lib.rs /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/sp-api-proc-macro-2.0.0/src/impl_runtime_apis.rs /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/sp-api-proc-macro-2.0.0/src/mock_impl_runtime_apis.rs /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/sp-api-proc-macro-2.0.0/src/decl_runtime_apis.rs /home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/sp-api-proc-macro-2.0.0/src/utils.rs
+
+/home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/sp-api-proc-macro-2.0.0/src/lib.rs:
+/home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/sp-api-proc-macro-2.0.0/src/impl_runtime_apis.rs:
+/home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/sp-api-proc-macro-2.0.0/src/mock_impl_runtime_apis.rs:
+/home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/sp-api-proc-macro-2.0.0/src/decl_runtime_apis.rs:
+/home/sergey/.cargo/registry/src/github.com-1ecc6299db9ec823/sp-api-proc-macro-2.0.0/src/utils.rs:
