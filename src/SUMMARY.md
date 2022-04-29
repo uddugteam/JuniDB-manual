@@ -1,0 +1,15 @@
+# Summary
+
+- [Introduction](./introduction.md)
+- [Getting Started](./getting-started.md)
+  - [Using the Docker image](./using-the-docker-image.md)
+  - [Previewing the functionality with a nice UI](previewing-functionality.md)
+- [Building an `offchain::ipfs` app](./building-an-offchain-ipfs-app.md)
+  - [Example Pallet](./template-pallet.md)
+    - [Callables reference](./offchain-ipfs-callables.md)
+  - [JavaScript clients](./offchain-ipfs-javascript.md)
+- [Architectural Explanation](./offchain-ipfs-architecture.md)
+  - [Building from Source](./building-offchain-ipfs-source.md)
+  - [Substrate Core Modifications](./substrate-core-modifications.md)
+- [Testing](./testing.md)
+- [Contributing / Development](./contributing-development.md)
