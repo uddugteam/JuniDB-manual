@@ -1,4 +1,5 @@
-# Summary
+# Juni DB
+## Summary
 
 - [Introduction](./introduction.md)
 - [Getting Started](./getting-started.md)
