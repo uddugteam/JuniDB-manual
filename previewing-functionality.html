@@ -81,7 +81,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="getting-started.html"><strong aria-hidden="true">2.</strong> Getting Started</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="using-the-docker-image.html"><strong aria-hidden="true">2.1.</strong> Using the Docker image</a></li><li class="chapter-item expanded "><a href="previewing-functionality.html" class="active"><strong aria-hidden="true">2.2.</strong> Previewing the functionality with a nice UI</a></li></ol></li><li class="chapter-item expanded "><a href="building-an-offchain-ipfs-app.html"><strong aria-hidden="true">3.</strong> Building an offchain::ipfs app</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="template-pallet.html"><strong aria-hidden="true">3.1.</strong> Example Pallet</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="offchain-ipfs-callables.html"><strong aria-hidden="true">3.1.1.</strong> Callables reference</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="offchain-ipfs-architecture.html"><strong aria-hidden="true">4.</strong> Architectural Explanation</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="building-offchain-ipfs-source.html"><strong aria-hidden="true">4.1.</strong> Building from Source</a></li><li class="chapter-item expanded "><a href="substrate-core-modifications.html"><strong aria-hidden="true">4.2.</strong> Substrate Core Modifications</a></li></ol></li><li class="chapter-item expanded "><a href="testing.html"><strong aria-hidden="true">5.</strong> Testing</a></li><li class="chapter-item expanded "><a href="contributing-development.html"><strong aria-hidden="true">6.</strong> Contributing / Development</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="getting-started.html"><strong aria-hidden="true">2.</strong> Getting Started</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="using-the-docker-image.html"><strong aria-hidden="true">2.1.</strong> Using the Docker image</a></li><li class="chapter-item expanded "><a href="previewing-functionality.html" class="active"><strong aria-hidden="true">2.2.</strong> Previewing the functionality with a nice UI</a></li></ol></li><li class="chapter-item expanded "><a href="testing.html"><strong aria-hidden="true">3.</strong> Testing</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -144,42 +144,31 @@
                     <main>
                         <h1 id="previewing-the-functionality-in-a-ui"><a class="header" href="#previewing-the-functionality-in-a-ui">Previewing the functionality in a UI</a></h1>
 <p>If you’re looking for a quick demo of the functionality, the simplest thing to do after running the
-Docker container's default command is to launch the <a href="https://github.com/substrate-developer-hub/substrate-front-end-template">substrate-front-end-template</a> UI.</p>
+Docker container's default command is to launch the <a href="https://github.com/uddugteam/juni-ui">juni-ui</a> UI.</p>
 <h2 id="instructions"><a class="header" href="#instructions">Instructions</a></h2>
 <ol>
 <li>
 <p>If you have <a href="https://nodejs.org">node.js</a> and <a href="https://yarnpkg.com">yarn</a> installed on your machine, run the following commands:</p>
-<pre><code class="language-bash">git clone https://github.com/substrate-developer-hub/substrate-front-end-template
-cd substrate-front-end-template
+<pre><code class="language-bash">git clone https://github.com/uddugteam/juni-ui
+cd juni-ui
 yarn install
 yarn start
 </code></pre>
 </li>
 <li>
-<p>Once the UI opens in your browser, scroll down to the <strong>Pallet Interactor</strong> section at the bottom.</p>
+<p>Once the UI opens in your browser you will see a JuniDB block at the top.</p>
+<center><img alt="" src="./img/juni-1.png" /></center>
 </li>
 <li>
-<p>Keep the default &quot;Extrinsic&quot; active, then select <code>templateModule</code> from the first dropdown.</p>
-<center><img alt="" src="./img/pallet-interactor-1.png" /></center>
+<p>For add new data to database you should write <strong>key</strong> and
+<strong>value</strong> in <strong>Set Key Value</strong> form fields and click to <strong>submit button</strong>.</p>
+<center><img alt="" src="./img/juni-2.png" /></center>
 </li>
 <li>
-<p>Then, select the callable you want from the list of callables that become available:</p>
-<center><img alt="" src="./img/pallet-interactor-2.png" /></center>
-</li>
-<li>
-<p>An additional text field or fields will appear below the last select box. Type the arguments
-in and then click <em>Signed</em>.</p>
-<center><img alt="" src="./img/pallet-interactor-3.png" /></center>
-</li>
-<li>
-<p>Watch your node logs and also the extrinsic events to the right for
-output and information.</p>
+<p>Then, to query data by field you should write key in <strong>Get Key Value</strong> form.</p>
+<center><img alt="" src="./img/juni-3.png" /></center>
 </li>
 </ol>
-<h2 id="now-what"><a class="header" href="#now-what">Now what</a></h2>
-<p>This demo is based on our included <code>templateModule</code> pallet - mostly meant as a showcase
-of the embedded [Rust IPFS] node. In the next section we will walk you through this pallet,
-which will be instructive as a reference implementation.</p>
 
                     </main>
 
@@ -189,7 +178,7 @@ which will be instructive as a reference implementation.</p>
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next" href="building-an-offchain-ipfs-app.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="testing.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -203,7 +192,7 @@ which will be instructive as a reference implementation.</p>
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next" href="building-an-offchain-ipfs-app.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="testing.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>

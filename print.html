@@ -82,7 +82,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="getting-started.html"><strong aria-hidden="true">2.</strong> Getting Started</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="using-the-docker-image.html"><strong aria-hidden="true">2.1.</strong> Using the Docker image</a></li><li class="chapter-item expanded "><a href="previewing-functionality.html"><strong aria-hidden="true">2.2.</strong> Previewing the functionality with a nice UI</a></li></ol></li><li class="chapter-item expanded "><a href="building-an-offchain-ipfs-app.html"><strong aria-hidden="true">3.</strong> Building an offchain::ipfs app</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="template-pallet.html"><strong aria-hidden="true">3.1.</strong> Example Pallet</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="offchain-ipfs-callables.html"><strong aria-hidden="true">3.1.1.</strong> Callables reference</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="offchain-ipfs-architecture.html"><strong aria-hidden="true">4.</strong> Architectural Explanation</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="building-offchain-ipfs-source.html"><strong aria-hidden="true">4.1.</strong> Building from Source</a></li><li class="chapter-item expanded "><a href="substrate-core-modifications.html"><strong aria-hidden="true">4.2.</strong> Substrate Core Modifications</a></li></ol></li><li class="chapter-item expanded "><a href="testing.html"><strong aria-hidden="true">5.</strong> Testing</a></li><li class="chapter-item expanded "><a href="contributing-development.html"><strong aria-hidden="true">6.</strong> Contributing / Development</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="getting-started.html"><strong aria-hidden="true">2.</strong> Getting Started</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="using-the-docker-image.html"><strong aria-hidden="true">2.1.</strong> Using the Docker image</a></li><li class="chapter-item expanded "><a href="previewing-functionality.html"><strong aria-hidden="true">2.2.</strong> Previewing the functionality with a nice UI</a></li></ol></li><li class="chapter-item expanded "><a href="testing.html"><strong aria-hidden="true">3.</strong> Testing</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -144,61 +144,31 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
-<blockquote>
-<p>This doc is updated version of
-<a href="https://github.com/uddugteam/substrate/tree/offchain-ipfs-v0.3">offchain-ipfs</a>
-for Substrate v3+.</p>
-</blockquote>
-<p><code>offchain::ipfs</code> is <a href="https://substrate.io">Substrate</a>, infused with <a href="https://ipfs.io">IPFS</a>.</p>
-<blockquote>
-<p><strong>Substrate</strong> is a blockchain framework built in Rust, with off-chain worker capabilities.
-<br /><strong>IPFS</strong> is a distributed file storage network, connecting peers and their content.</p>
-</blockquote>
-<p>By including <a href="https://github.com/uddugteam/rust-ifps">the Rust implementation IPFS</a> in the native
+<p><code>JuniDB</code> is a <a href="https://substrate.io">Substrate</a> database powered by <a href="https://github.com/uddugteam/substrate/tree/offchain-ipfs-v0.3"><code>offchain::ipfs</code></a>.</p>
+<p>By using IPFS power in the native
 Substrate runtime, and by allowing pass-through wasm calls via Substrate's
-<a href="https://docs.substrate.io/v3/concepts/off-chain-features/">Off-chain Workers</a>, we enable a powerful and familiar subset of the IPFS APIs, including:</p>
+<a href="https://docs.substrate.io/v3/concepts/off-chain-features/">Off-chain Workers</a>, we enable a powerful tool to store data in KEY-VALUE model:</p>
 <ul>
-<li><code>ipfs add</code> - Write data to IPFS</li>
-<li><code>ipfs cat</code> - Read data from IPFS</li>
-<li><code>ipfs dht findpeer</code> - Discover peers</li>
-<li><code>ipfs dht findprovs</code> - Discover content</li>
-<li><code>ipfs swarm connect</code> / <code>disconnect</code> - Swarm with other IPFS peers</li>
-<li><code>ipfs pin add</code> / <code>rm</code> - Pin and unpin content</li>
+<li><code>set</code> - store data with specific key to DB</li>
+<li><code>gey</code> - Read data from DB by provided key</li>
 </ul>
-<p><code>offchain::ipfs</code> allows you to account for your data transactions and DHT status in the blockchain.
-These on-chain insights can serve as a foundation for incentivized data storage and replication.
-This means <em>no separate executable</em>: both blockchain and distributed storage are together in one.</p>
-<p>The <code>offchain::ipfs</code> Manual is the documentation of our efforts, as well as useful explanations
-and code examples to get you started using this technology. Due to <code>offchain::ipfs</code> being a
-well-maintained fork of <a href="https://github.com/paritytech/substrate">paritytech/substrate</a>, this manual also stands in as typical
-documentation, such as docs.rs and README.md files.</p>
-<p>This manual is presented by: <a href="https://github.com/koivunej">@koivunej</a>, <a href="https://github.com/ljedrz">@ljedrz</a>, <a href="https://github.com/whalelephant">@whalelephant</a>, and <a href="https://github.com/aphelionz">@aphelionz</a></p>
 <p>Manual have updated to Sybstrate v3 by: <a href="https://github.com/andskur">@andskur</a> and <a href="https://github.com/uddugteam">Uddùg team</a></p>
 <h2 id="disclaimers"><a class="header" href="#disclaimers">Disclaimers</a></h2>
 <p>You should still consider this an <strong>alpha preview</strong>.</p>
-<p>The primary value of this work is the embedded IPFS node itself. The pallet included in the
-<code>node-template</code> binary is only meant as a showcase, and is just one of many possible realizations
-of <code>offchain::ipfs</code>.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="getting-started"><a class="header" href="#getting-started">Getting Started</a></h1>
 <p>You can get up and running in about 15 minutes by:</p>
 <ul>
-<li>Running <code>offchain::ipfs</code> via the provided <a href="https://hub.docker.com/r/andskur/substrate-offchain-ipfs">docker image</a></li>
-<li>Previewing the functionality via the <a href="https://github.com/substrate-developer-hub/substrate-front-end-template">substrate-front-end-template</a></li>
+<li>Running <code>JuniDB</code> via the provided <a href="https://hub.docker.com/repository/docker/andskur/juni-db">docker</a></li>
+<li>Previewing the functionality via the <a href="https://github.com/uddugteam/juni-ui">UI</a></li>
 </ul>
-<blockquote>
-<p><strong>Why a Docker image?</strong><br /><a href="https://github.com/uddugteam/substrate"><code>offchain::ipfs</code></a> is currently a well-maintained fork of
-<a href="https://github.com/paritytech/substrate">paritytech/substrate</a>. Until we are ready to make an upstream PR, we are using a Docker image
-for simplicity's sake.</p>
-</blockquote>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="using-the-docker-image"><a class="header" href="#using-the-docker-image">Using the Docker image</a></h1>
-<p>The recommended way to use <code>offchain::ipfs</code> is via the <a href="https://hub.docker.com/r/andskur/substrate-offchain-ipfs">andskur/substrate-offchain-ipfs</a> image.</p>
+<p>The recommended way to use <code>JuniDB</code> is via the <a href="https://hub.docker.com/repository/docker/andskur/juni-db">docker</a> image.</p>
 <h2 id="installing-the-image"><a class="header" href="#installing-the-image">Installing the image</a></h2>
 <pre><code class="language-bash"># Pull the image from Docker Hub
-$ docker pull andskur/substrate-offchain-ipfs
+$ docker pull andskur/juni-db:latest
 </code></pre>
-<p>The image comes with binary. The <code>substrate</code> binary does not have our custom
-pallets to interact with the IPFS node,
-instead you can connect to it through its multiaddr.</p>
+<p>The image comes with binary. The <code>substrate</code> binary does not have our <a href="https://github.com/uddugteam/substrate/tree/offchain-ipfs-v0.3">offchain-ipfs</a>
+pallets to interact with the IPFS node, instead you can connect to it through its multiaddr.</p>
 <p>The image exposes ports <code>9944</code> for WebSockets, <code>9933</code> for RPC, <code>30333</code> for p2p, and <code>9615</code> for
 Prometheus.</p>
 <h2 id="running-the-image"><a class="header" href="#running-the-image">Running the image</a></h2>
@@ -212,621 +182,47 @@ Prometheus.</p>
   -it \
   --rm \
   --name node-template \
-  andskur/substrate-offchain-ipfs:latest
+  andskur/juni-db:latest
 </code></pre>
 <p>This will work with any arguments you'd normally pass to <code>substrate</code></p>
 <h3 id="persistent-storage"><a class="header" href="#persistent-storage">Persistent Storage</a></h3>
 <p>To run with persistent storage volume between containers, first create a volume:</p>
-<pre><code class="language-bash">docker volume create offchain-ipfs-vol
+<pre><code class="language-bash">docker volume create junidb-vol
 </code></pre>
-<p>Then add <code>-v offchain-ipfs-vol:/substrate-offchain-ipfs</code> to the docker run commands above.</p>
+<p>Then add <code>-v junidb-vol:/junidb</code> to the docker run commands above.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="previewing-the-functionality-in-a-ui"><a class="header" href="#previewing-the-functionality-in-a-ui">Previewing the functionality in a UI</a></h1>
 <p>If you’re looking for a quick demo of the functionality, the simplest thing to do after running the
-Docker container's default command is to launch the <a href="https://github.com/substrate-developer-hub/substrate-front-end-template">substrate-front-end-template</a> UI.</p>
+Docker container's default command is to launch the <a href="https://github.com/uddugteam/juni-ui">juni-ui</a> UI.</p>
 <h2 id="instructions"><a class="header" href="#instructions">Instructions</a></h2>
 <ol>
 <li>
 <p>If you have <a href="https://nodejs.org">node.js</a> and <a href="https://yarnpkg.com">yarn</a> installed on your machine, run the following commands:</p>
-<pre><code class="language-bash">git clone https://github.com/substrate-developer-hub/substrate-front-end-template
-cd substrate-front-end-template
+<pre><code class="language-bash">git clone https://github.com/uddugteam/juni-ui
+cd juni-ui
 yarn install
 yarn start
 </code></pre>
 </li>
 <li>
-<p>Once the UI opens in your browser, scroll down to the <strong>Pallet Interactor</strong> section at the bottom.</p>
+<p>Once the UI opens in your browser you will see a JuniDB block at the top.</p>
+<center><img alt="" src="./img/juni-1.png" /></center>
 </li>
 <li>
-<p>Keep the default &quot;Extrinsic&quot; active, then select <code>templateModule</code> from the first dropdown.</p>
-<center><img alt="" src="./img/pallet-interactor-1.png" /></center>
+<p>For add new data to database you should write <strong>key</strong> and
+<strong>value</strong> in <strong>Set Key Value</strong> form fields and click to <strong>submit button</strong>.</p>
+<center><img alt="" src="./img/juni-2.png" /></center>
 </li>
 <li>
-<p>Then, select the callable you want from the list of callables that become available:</p>
-<center><img alt="" src="./img/pallet-interactor-2.png" /></center>
-</li>
-<li>
-<p>An additional text field or fields will appear below the last select box. Type the arguments
-in and then click <em>Signed</em>.</p>
-<center><img alt="" src="./img/pallet-interactor-3.png" /></center>
-</li>
-<li>
-<p>Watch your node logs and also the extrinsic events to the right for
-output and information.</p>
+<p>Then, to query data by field you should write key in <strong>Get Key Value</strong> form.</p>
+<center><img alt="" src="./img/juni-3.png" /></center>
 </li>
 </ol>
-<h2 id="now-what"><a class="header" href="#now-what">Now what</a></h2>
-<p>This demo is based on our included <code>templateModule</code> pallet - mostly meant as a showcase
-of the embedded [Rust IPFS] node. In the next section we will walk you through this pallet,
-which will be instructive as a reference implementation.</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="building-an-offchainipfs-app"><a class="header" href="#building-an-offchainipfs-app">Building an <code>offchain::ipfs</code> app</a></h1>
-<p>In this section we’ll cover the essentials on what you'll need to start building your
-application with <code>offchain::ipfs</code>. We do so by way of:</p>
-<ol>
-<li>Walking you through the example Substrate pallet that's included with <code>offchain::ipfs</code></li>
-<li>Providing example code from two Rust clients (<code>substrate-subxt</code> and
-<code>substrat-api-client</code>), and one JavaScript client (<code>polkadot.js</code>).</li>
-</ol>
-<p>We expect feedback on this pallet, but also we hope that the reference implementation will inspire
-builders to create their own pallets, expose their own JSON-RPC endpoints, and call them from
-their applications similarly.</p>
-<h2 id="how-it-all-works"><a class="header" href="#how-it-all-works">How it all works</a></h2>
-<p>It helps, first, to have a basic understanding of how a request flows from a user of your
-application, through the Substrate offchain-worker, to the native runtime, over to IPFS,
-and then all the way back up to your application again.</p>
-<ol>
-<li>Once the chain is initialized or blocks are synced, the embedded Rust IPFS
-node is launched and connected to the offchain worker runtime. It will stay running
-in the background.</li>
-<li>The user makes a JSON-RPC call to submit an extrinsic to the node's runtime, using
-the callable functions exposed from the custom pallet.</li>
-<li>The request is added to the relevant queue in the Substrate storage database.
-This is also defined in the custom pallet.</li>
-<li>Upon import of specified blocks, the node's runtime passes the requests from the queues to an
-offchain worker.</li>
-<li>The offchain worker relays the desired requests to the Rust IPFS node, and
-the node returns futures resolving to results</li>
-<li>The offchain worker registers the results and relays them to the substrate
-runtime, which processes them and acts upon them as specified in the custom pallet.</li>
-<li>The offchain worker stops running</li>
-</ol>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="example-pallet"><a class="header" href="#example-pallet">Example Pallet</a></h1>
-<p><code>offchain::ipfs</code> comes with a showcase <strong><a href="https://substrate.dev/docs/en/knowledgebase/runtime/pallets">pallet</a></strong>, which is essentially a Rust module that
-complies with the requirements to be included within a substrate <strong>runtime</strong>.</p>
-<blockquote>
-<p><strong>This pallet is meant only as an example.</strong> We're including it to be helpful for future pallet authors
-that want to use the embedded native IPFS node to suit their needs.</p>
-</blockquote>
-<p>If you're familiar with Substrate and the Framework for Runtime Aggregation of Modularized Entities
-(FRAME), you can simply view the <a href="https://github.com/uddugteam/substrate/blob/offchain_ipfs-v0.3/bin/node-template/pallets/template/src/lib.rs">source code</a> for this pallet. Otherwise, read on as we go through
-the code step by step.</p>
-<p>Please note the order in which these concepts are explained here is not necessarily the order that
-they appear in the code.</p>
-<p>You can also learn more by following the <a href="https://docs.substrate.io/tutorials/v3/proof-of-existence">Building a Custom Pallet</a> tutorial.</p>
-<h2 id="prelude"><a class="header" href="#prelude">Prelude</a></h2>
-<p>We start by using items from the native runtime. Our pallet is <code>no_std</code> since we're targeting <code>Wasm</code></p>
-<pre><code class="language-rust ignore">#![cfg_attr(not(feature = &quot;std&quot;), no_std)]
-// ...
-use sp_core::offchain::{
-  Duration, IpfsRequest, IpfsResponse, OpaqueMultiaddr, Timestamp
-};
-// ...
-use sp_runtime::offchain::ipfs;
-</code></pre>
-<h2 id="command-types"><a class="header" href="#command-types">Command Types</a></h2>
-<p>When your JSON-RPC calls are received by the pallet, the requests are
-expressed as <code>___Command</code> enums and stored in the off-chain worker storage as
-a queue, to be ingested by your native runtime and passed to IPFS.</p>
-<p>Derive attributes are omitted.</p>
-<pre><code class="language-rust ignore">// Commands involved in peer-to-peer connections
-enum ConnectionCommand {
-    ConnectTo(OpaqueMultiaddr),
-    DisconnectFrom(OpaqueMultiaddr),
-}
-
-// Commands that add, remove, pin, unpin, and output data
-enum DataCommand {
-    AddBytes(Vec&lt;u8&gt;),
-    CatBytes(Vec&lt;u8&gt;),
-    InsertPin(Vec&lt;u8&gt;),
-    RemoveBlock(Vec&lt;u8&gt;),
-    RemovePin(Vec&lt;u8&gt;),
-}
-
-// Commands that query the distributed hash table (DHT)
-// for peers and content
-enum DhtCommand {
-    FindPeer(Vec&lt;u8&gt;),
-    GetProviders(Vec&lt;u8&gt;),
-}
-</code></pre>
-<h2 id="the-runtime-configuration-trait"><a class="header" href="#the-runtime-configuration-trait">The runtime configuration trait</a></h2>
-<p>The <code>system::Config</code> trait allows you to define which capabilities from the runtime you want to include,
-and how you want to use them. You can also &quot;tightly couple&quot; your pallet to other pallets by adding their
-<code>Config</code>s to your pallet's inherited trait list.</p>
-<p>Here, however, we keep things simple by:</p>
-<ol>
-<li>Loosely coupling this pallet by leaving out inherited traits</li>
-<li>Including only the required <code>Event</code> type</li>
-</ol>
-<pre><code class="language-rust ignore">/// The pallet's configuration trait.
-#[pallet::config]
-pub trait Config: CreateSignedTransaction&lt;Call&lt;Self&gt;&gt; + frame_system::Config {
-    /// The overarching event type.
-    type Event: From&lt;Event&lt;Self&gt;&gt; + Into&lt;&lt;Self as system::Trait&gt;::Event&gt;;
-}
-</code></pre>
-<p>Later in the code, we implement some helper functions on the <code>Config</code> struct. The function
-bodies are omitted for brevity's sake.</p>
-<pre><code class="language-rust ignore">impl&lt;T: Config&gt; Pallet&lt;T&gt; {
-    // &quot;Sends&quot; a request to the local IPFS node by adding it to the offchain storage
-    fn ipfs_request(req: IpfsRequest, deadline: impl Into&lt;Option&lt;Timestamp&gt;&gt;)
-      -&gt; Result&lt;IpfsResponse, Error&lt;T&gt;&gt;
-
-    // Reads from the `ConnectionQueue` and connects / disconnects
-    // from desired / undesired peers, respectively
-    fn connection_housekeeping() -&gt; Result&lt;(), Error&lt;T&gt;&gt;
-
-    // Reads `FindPeer` and `GetProviders` commands from the `DhtQueue`,
-    // and requests their execution from the native runtime
-    fn handle_dht_requests() -&gt; Result&lt;(), Error&lt;T&gt;&gt;
-
-    // Reads `AddBytes`, `CatBytes`, `DataCommand`, `RemoveBlock`, `InsertPin`,
-    // and `RemovePin` commands from the `DataQueue` and requests their
-    // execution from the native runtime.
-    fn handle_data_requests() -&gt; Result&lt;(), Error&lt;T&gt;&gt;
-
-    // Logs metadata (the number of connected peers) to the console at the DEBUG log level
-    fn print_metadata() -&gt; Result&lt;(), Error&lt;T&gt;&gt;
-</code></pre>
-<h2 id="the-decl_-macros"><a class="header" href="#the-decl_-macros">The <code>decl_</code> macros</a></h2>
-<p>Pallets included in Substrate runtimes must adhere to the conventions of <a href="https://substrate.dev/docs/en/knowledgebase/runtime/frame">FRAME</a>.</p>
-<h3 id="storage"><a class="header" href="#storage">storage</a></h3>
-<p>Here, we define the data that will actually be stored on-chain when calling <strong>extrinsics</strong>.</p>
-<p>Since the offchain-worker can't perform I/O outside of the wasm context, we store our requests as
-queues, to be processed on a periodic basis, consumed, and ultimately performed by the native
-runtime.</p>
-<p>This is where we use the <code>ConnectionQueue</code>, <code>DataQueue</code>, and <code>DhtQueue</code> command types from above.</p>
-<pre><code class="language-rust ignore">    // This pallet's storage items.
-    #[pallet::storage]
-    #[pallet::getter(fn connection_queue)]
-    // A list of addresses to connect to and disconnect from.
-    pub type ConnectionQueue&lt;T: Config&gt; = StorageValue&lt;_, Vec&lt;ConnectionCommand&gt;, ValueQuery&gt;;
-
-    #[pallet::storage]
-    #[pallet::getter(fn data_queue)]
-    // A queue of data to publish or obtain on IPFS.
-    pub type DataQueue&lt;T: Config&gt; = StorageValue&lt;_, Vec&lt;DataCommand&gt;, ValueQuery&gt;;
-
-    #[pallet::storage]
-    #[pallet::getter(fn dht_queue)]
-    // A list of requests to the DHT.
-    pub type DhtQueue&lt;T: Config&gt; = StorageValue&lt;_, Vec&lt;DhtCommand&gt;, ValueQuery&gt;;
-</code></pre>
-<h3 id="event"><a class="header" href="#event">event</a></h3>
-<p>This is where we define what those events are and what they contain.</p>
-<p>Once a command is sent to the off-chain worker, one of the following chain events is emitted.</p>
-<pre><code class="language-rust ignore">    // The pallet's events
-    #[pallet::event]
-    #[pallet::generate_deposit(pub(super) fn deposit_event)]
-    pub enum Event&lt;T: Config&gt; {
-        /// Event documentation should end with an array that provides descriptive names for event
-        /// parameters. [something, who]
-        SomethingStored(u32, T::AccountId),
-        ConnectionRequested(T::AccountId),
-        DisconnectRequested(T::AccountId),
-        QueuedDataToAdd(T::AccountId),
-        QueuedDataToCat(T::AccountId),
-        QueuedDataToPin(T::AccountId),
-        QueuedDataToRemove(T::AccountId),
-        QueuedDataToUnpin(T::AccountId),
-        FindPeerIssued(T::AccountId),
-        FindProvidersIssued(T::AccountId),
-    }
-</code></pre>
-<h3 id="hooks"><a class="header" href="#hooks">hooks</a></h3>
-<p>We should add some hooks that should be called on every new block.</p>
-<pre><code class="language-rust ignore">#[pallet::hooks]
-impl&lt;T: Config&gt; Hooks&lt;BlockNumberFor&lt;T&gt;&gt; for Pallet&lt;T&gt; {
-    // Called at the beginning of every block before any extrinsics. Clears
-    // `ConnectionQueue` and `DhtQueue` values every block, and clears
-    // `DataQueue` every other block, since they should have been processed
-    // Returns a weight of 0
-    fn on_initialize(block_number: T::BlockNumber) -&gt; Weight
-    
-    // Called at the beginning of every block to create extrinsics.
-    // - `connection_housekeeping` and `handle_dht_requests` called every block
-    // - `handle_data_requests` is called on every other block
-    // - `print_metadata` is called every 5 blocks
-    // blocks to alleviate some bandwidth and storage congestion
-    fn offchain_worker(block_number: T::BlockNumber)
-}
-</code></pre>
-<h3 id="call"><a class="header" href="#call">call</a></h3>
-<p>This section, perhaps the most critical section of any given pallet, is where you can define
-functions that are exposed via JSON-RPC to client libraries and, by proxy, your users.</p>
-<p>In practice, the bulk of what these functions do is to modify the <code>DataQueue</code>, <code>DhtQueue</code>, and
-<code>ConnectionQueue</code> storage objects by pushing signed command requests to their respective queues.</p>
-<p>Some default types in the functions are omitted, but we've kept the <code>#[weight]</code> attributes around.</p>
-<blockquote>
-<p>The Substrate docs define one unit of weight as &quot;one picosecond of execution time on
-fixed reference hardware.&quot; These are essentially <em>time limits</em> for block creation, and can be
-(indirectly) mapped to transaction fees analogous to something like &quot;gas fees.&quot; Read more about
-<a href="https://substrate.dev/docs/en/knowledgebase/learn-substrate/weight">weights</a> if you're curious.</p>
-</blockquote>
-<pre><code class="language-rust ignore">// The pallet's dispatchable functions.
-// Dispatchable functions allows users to interact with the pallet and invoke state changes.
-#[pallet::call]
-impl&lt;T: Config&gt; Pallet&lt;T&gt; {
-    /// Mark a `Multiaddr` as a desired connection target. The connection will be established
-    /// during the next run of the off-chain `connection_housekeeping` process.
-    #[pallet::weight(100_000)]
-    pub fn ipfs_connect(origin: OriginFor&lt;T&gt;, addr: Vec&lt;u8&gt;) -&gt; DispatchResult
-    
-    /// Queues a `Multiaddr` to be disconnected. The connection will be severed during the next
-    /// run of the off-chain `connection_housekeeping` process.
-    #[pallet::weight(500_000)]
-    pub fn ipfs_disconnect(origin: OriginFor&lt;T&gt;, addr: Vec&lt;u8&gt;) -&gt; DispatchResult
-    
-    /// Add arbitrary bytes to the IPFS repository. The registered `Cid` is printed out in the
-    /// logs.
-    #[pallet::weight(200_000)]
-    pub fn ipfs_add_bytes(origin: OriginFor&lt;T&gt;, data: Vec&lt;u8&gt;) -&gt; DispatchResult
-    
-    /// Find IPFS data pointed to by the given `Cid`; if it is valid UTF-8, it is printed in the
-    /// logs verbatim; otherwise, the decimal representation of the bytes is displayed instead.
-    #[pallet::weight(100_000)]
-    pub fn ipfs_cat_bytes(origin: OriginFor&lt;T&gt;, cid: Vec&lt;u8&gt;) -&gt; DispatchResult
-    
-    /// Add arbitrary bytes to the IPFS repository. The registered `Cid` is printed out in the
-    /// logs.
-    #[pallet::weight(300_000)]
-    pub fn ipfs_remove_block(origin: OriginFor&lt;T&gt;, cid: Vec&lt;u8&gt;) -&gt; DispatchResult
-    
-    /// Pins a given `Cid` non-recursively.
-    #[pallet::weight(100_000)]
-    pub fn ipfs_insert_pin(origin: OriginFor&lt;T&gt;, cid: Vec&lt;u8&gt;) -&gt; DispatchResult
-    
-    /// Unpins a given `Cid` non-recursively.
-    #[pallet::weight(100_000)]
-    pub fn ipfs_remove_pin(origin: OriginFor&lt;T&gt;, cid: Vec&lt;u8&gt;) -&gt; DispatchResult
-    
-    /// Find addresses associated with the given `PeerId`.
-    #[pallet::weight(100_000)]
-    pub fn ipfs_dht_find_peer(origin: OriginFor&lt;T&gt;, peer_id: Vec&lt;u8&gt;) -&gt; DispatchResult
-    
-    /// Find the list of `PeerId`s known to be hosting the given `Cid`.
-    #[pallet::weight(100_000)]
-    pub fn ipfs_dht_find_providers(origin: OriginFor&lt;T&gt;, cid: Vec&lt;u8&gt;) -&gt; DispatchResult
-}
-</code></pre>
-<h3 id="errors"><a class="header" href="#errors">errors</a></h3>
-<p>This is where we can define the myriad ways things can go wrong, as an enum.</p>
-<pre><code class="language-rust ignore">    #[pallet::error]
-    pub enum Error&lt;T&gt; {
-        /// Error names should be descriptive.
-        NoneValue,
-        /// Errors should have helpful documentation associated with them.
-        StorageOverflow,
-        CantCreateRequest,
-        RequestTimeout,
-        RequestFailed,
-    }
-</code></pre>
-<p>Read on to see examples of how you can make calls to the this example pallet from your application.</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="example-pallet-callable-reference"><a class="header" href="#example-pallet-callable-reference">Example pallet callable reference</a></h1>
-<p>The following callable functions are exposed via JSON-RPC by the example pallet.
-These specific functions were chosen due to popularity, to give you a familiar experience.</p>
-<p>These functions are not the only ones available in the native runtime, and therefore
-do not represent the full extent of functionality available to you.</p>
-<p>Regardless, we still detail the example template functions here as a helpful reference. If you have
-feedback about these existing functions, or would like to request new functions, please open an issue
-at <a href="https://github.com/uddugteam/substrate">rs-ipfs/substrate</a>.</p>
-<h2 id="callables"><a class="header" href="#callables">Callables</a></h2>
-<p>What follows is a list of callables, their frequency in terms of block creation, their weights,
-their arguments and return values. As explained in the section on the example pallet,
-weights are essentially picosecond representations of a time limit for a given transaction,
-and can be loosely correlated to transaction fees.</p>
-<blockquote>
-<p><strong>Rust's <code>snake_case</code> is used here.</strong> However, as you'll see in the upcoming polkadot.js example,
-JavaScript will use <code>camelCase</code> for function and variable names. Generally, the exposed JSON-RPC
-functions will adhere to the conventions of the programming language that the client code is
-written in.</p>
-</blockquote>
-<p>Also, the weights here and block frequencies here are chosen rather arbitrarily without tokenomics
-in mind. You will probably need to tune these values in your own custom pallet.</p>
-<p>Finally, while we list &quot;return&quot; values for simplicity's sake, the template pallet does not actually
-return any values from the RPC calls. What this really means in the context of Substrate is that the
-values will be <em>eventually</em> emitted returned in the runtime logs, which you'll need to monitor.</p>
-<h3 id="ipfs_add_bytes"><a class="header" href="#ipfs_add_bytes"><code>ipfs_add_bytes</code></a></h3>
-<p>Adds the given bytes to the IPFS repository.</p>
-<p><strong>Frequency:</strong> Every other block<br />
-<strong>Weight</strong>: 200,000<br /></p>
-<h4 id="arguments"><a class="header" href="#arguments">Arguments</a></h4>
-<ul>
-<li><code>bytes</code> - The bytes that you want to add to IPFS, e.g. <code>vec![1, 2, 3, 4]</code> or <code>b&quot;1234&quot;</code></li>
-</ul>
-<h4 id="returns"><a class="header" href="#returns">Returns</a></h4>
-<p>A Content ID (CID) string, e.g. <code>QmU1f6ngsoHvwtViihzLQPXCA8j3sagmvY9GJJDY7Ao7Aa</code></p>
-<h3 id="ipfs_cat_bytes"><a class="header" href="#ipfs_cat_bytes"><code>ipfs_cat_bytes</code></a></h3>
-<p>Displays the bytes behind a given CID.</p>
-<p><strong>Frequency:</strong> Every other block<br />
-<strong>Weight</strong>: 100,000</p>
-<h4 id="arguments-1"><a class="header" href="#arguments-1">Arguments</a></h4>
-<ul>
-<li><code>cid</code>: The CID of your desired content, e.g. <code>QmY7Yh4UquoXHLPFo2XbhXkhBvFoPwmQUSa92pxnxjQuPU</code></li>
-</ul>
-<h4 id="returns-1"><a class="header" href="#returns-1">Returns</a></h4>
-<p>The requested bytes - UTF-8 as a string, non-UTF-8 as hexidecimal string</p>
-<h3 id="ipfs_connect"><a class="header" href="#ipfs_connect"><code>ipfs_connect</code></a></h3>
-<p>Connects the embedded node to the given Multiaddr.</p>
-<p><strong>Frequency:</strong> Every block<br />
-<strong>Weight</strong>: 100,000</p>
-<h4 id="arguments-2"><a class="header" href="#arguments-2">Arguments</a></h4>
-<ul>
-<li><code>multiaddr</code>: A valid multiaddress with peer ID a the end, e.g. <code>/ip4/104.131.131.82/tcp/4001/p2p/QmaCpDMGvV2BGHeYERUEnRQAwe3N8SzbUtfsmvsqQLuvuJ</code></li>
-</ul>
-<h4 id="returns-2"><a class="header" href="#returns-2">Returns</a></h4>
-<p>Nothing, or an error.</p>
-<h3 id="ipfs_disconnect"><a class="header" href="#ipfs_disconnect"><code>ipfs_disconnect</code></a></h3>
-<p>Disconnects from the given Multiaddr.</p>
-<p><strong>Frequency:</strong> Every block<br />
-<strong>Weight</strong>: 500,000</p>
-<h4 id="arguments-3"><a class="header" href="#arguments-3">Arguments</a></h4>
-<ul>
-<li><code>multiaddr</code>: A valid multiaddress with peer ID a the end, e.g. <code>/ip4/104.131.131.82/tcp/4001/p2p/QmaCpDMGvV2BGHeYERUEnRQAwe3N8SzbUtfsmvsqQLuvuJ</code></li>
-</ul>
-<h4 id="returns-3"><a class="header" href="#returns-3">Returns</a></h4>
-<p>Nothing, or an error.</p>
-<h3 id="ipfs_dht_findpeer"><a class="header" href="#ipfs_dht_findpeer"><code>ipfs_dht_findpeer</code></a></h3>
-<p>Performs a search for the addresses associated with the provided PeerId.</p>
-<p><strong>Frequency:</strong> Every block<br />
-<strong>Weight</strong>: 100,000</p>
-<h4 id="arguments-4"><a class="header" href="#arguments-4">Arguments</a></h4>
-<ul>
-<li><code>peerID</code>: A <code>PeerId</code> hash, e.g. <code>QmaCpDMGvV2BGHeYERUEnRQAwe3N8SzbUtfsmvsqQLuvuJ</code></li>
-</ul>
-<h4 id="returns-4"><a class="header" href="#returns-4">Returns</a></h4>
-<p>A multiaddr, such as <code>/ip4/104.131.131.82/tcp/4001</code>.</p>
-<h3 id="ipfs_dht_findproviders"><a class="header" href="#ipfs_dht_findproviders"><code>ipfs_dht_findproviders</code></a></h3>
-<p>Search for PeerIds known to be providing the given Cid. You must be connected to at least one peer.</p>
-<p><strong>Frequency:</strong> Every block<br />
-<strong>Weight</strong>: 100,000</p>
-<h4 id="arguments-5"><a class="header" href="#arguments-5">Arguments</a></h4>
-<ul>
-<li><code>cid</code>: The CID of your desired content, e.g. <code>QmY7Yh4UquoXHLPFo2XbhXkhBvFoPwmQUSa92pxnxjQuPU</code></li>
-</ul>
-<h4 id="returns-5"><a class="header" href="#returns-5">Returns</a></h4>
-<ul>
-<li><code>peerID</code>: An array <code>PeerId</code> string, e.g. <code>[QmaCpDMGvV2BGHeYERUEnRQAwe3N8SzbUtfsmvsqQLuvuJ]</code></li>
-</ul>
-<h3 id="ipfs_insert_pin"><a class="header" href="#ipfs_insert_pin"><code>ipfs_insert_pin</code></a></h3>
-<p>Non-recursively pins a block with the specified Cid, protecting it from removal.</p>
-<p><strong>Frequency:</strong> Every other block<br />
-<strong>Weight</strong>: 100,000</p>
-<h4 id="arguments-6"><a class="header" href="#arguments-6">Arguments</a></h4>
-<ul>
-<li><code>cid</code>: The CID of the data you want to pin, e.g. <code>QmU1f6ngsoHvwtViihzLQPXCA8j3sagmvY9GJJDY7Ao7Aa</code></li>
-</ul>
-<h4 id="returns-6"><a class="header" href="#returns-6">Returns</a></h4>
-<p>Nothing, or an error.</p>
-<h3 id="ipfs_remove_pin"><a class="header" href="#ipfs_remove_pin"><code>ipfs_remove_pin</code></a></h3>
-<p>Removes a pin from a block, so that it is no longer persistent and can be removed.</p>
-<p><strong>Frequency:</strong> Every other block<br />
-<strong>Weight</strong>: 100,000</p>
-<h4 id="arguments-7"><a class="header" href="#arguments-7">Arguments</a></h4>
-<ul>
-<li><code>cid</code>: The CID of the data you want to unpin, e.g. <code>QmU1f6ngsoHvwtViihzLQPXCA8j3sagmvY9GJJDY7Ao7Aa</code></li>
-</ul>
-<h4 id="returns-7"><a class="header" href="#returns-7">Returns</a></h4>
-<h3 id="ipfs_remove_block"><a class="header" href="#ipfs_remove_block"><code>ipfs_remove_block</code></a></h3>
-<p>Removes a block from the node’s repository.</p>
-<p><strong>Frequency:</strong> Every other block<br />
-<strong>Weight</strong>: 300,000</p>
-<h4 id="arguments-8"><a class="header" href="#arguments-8">Arguments</a></h4>
-<ul>
-<li><code>cid</code>: The CID of the block you want to remove, e.g. <code>QmU1f6ngsoHvwtViihzLQPXCA8j3sagmvY9GJJDY7Ao7Aa</code></li>
-</ul>
-<h4 id="returns-8"><a class="header" href="#returns-8">Returns</a></h4>
-<p>Nothing, or an error.</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="the-architecture-of-offchainipfs"><a class="header" href="#the-architecture-of-offchainipfs">The architecture of <code>offchain::ipfs</code></a></h1>
-<p>As we explained in the introduction, <code>offchain::ipfs</code> is currently a fork of
-<a href="https://github.com/paritytech/substrate"><code>paritytech/substrate</code></a> maintained by <a href="https://uddug.com">Uddùg Team</a>.</p>
-<p>There are three branches of note:</p>
-<ul>
-<li><a href="https://github.com/uddugteam/substrate"><code>master</code></a> - which will always follow <code>paritytech/substrate</code> in lock-step, with no modifications</li>
-<li><a href="https://github.com/uddugteam/substrate/tree/offchain-ipfs-v0.3"><code>offchain_ipfs</code></a> - which contains the modifications, and periodically rebases from <code>master</code></li>
-</ul>
-<p>There may be other branches at any given time for pragmatic purposes, but the three above should
-always exist and be suitable for their respective roles.</p>
-<p>In the rest of this chapter, we'll show you how to build the code in these branches, and then we'll
-take a closer look at what modifications were made to substrate to achieve <code>offchain::ipfs</code>.</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="building-from-source"><a class="header" href="#building-from-source">Building from Source</a></h1>
-<p>You can build the docker image from source, or build the binaries locally. Both of these
-can take quite a long time, even on &quot;developer&quot; hardware - particularly the docker image.</p>
-<h2 id="running-the-node-from-source"><a class="header" href="#running-the-node-from-source">Running the node from source</a></h2>
-<pre><code class="language-bash">git clone https://github.com/uddugteam/substrate
-cd substrate
-git checkout offchain-ipfs-v0.3
-cargo build --workspace
-</code></pre>
-<h2 id="building-the-docker-image-from-source"><a class="header" href="#building-the-docker-image-from-source">Building the docker image from source</a></h2>
-<p>This is a multistage build based on Alpine linux. The resulting image will contain
-the <code>substrate-ipfs</code> binary.</p>
-<p>We suggest you supply your own tag name.</p>
-<pre><code class="language-bash">git clone https://github.com/uddugteam/substrate
-cd substrate
-git checkout offchain-ipfs-v0.3
-docker build --file .maintain/Dockerfile --tag [your-tag-here] .
-</code></pre>
-<p>Refer to the <strong><a href="./using-the-docker-image.html">Using the Docker image</a></strong> section of for information about running the image.</p>
-<p>Read on to learn about the modifications in the <code>offchain_ipfs</code> branch, and what they do.</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="substrate-core-modifications"><a class="header" href="#substrate-core-modifications">Substrate core modifications</a></h1>
-<p>Every one of <code>offchain::ipfs</code>'s functional modifications to the <a href="https://github.com/paritytech/substrate"><code>paritytech/substrate</code></a> core are
-encapsulated in a single commit on the <a href="https://github.com/uddugteam/substrate/tree/offchain-ipfs-v0.3"><code>offchain_ipfs</code></a> branch of our repo.</p>
-<p>In this section we'll walk through these modifications so that you may understand them, and
-perhaps improve upon them yourself.</p>
-<h2 id="how-substrate-is-organized"><a class="header" href="#how-substrate-is-organized">How Substrate is organized</a></h2>
-<p>Substrate, as a modular framework, provides:</p>
-<ol>
-<li><strong>Clients</strong> are services that interact with the substrate blockchain, e.g. substrate full and
-light client. Offchain workers are one of those clients</li>
-<li>Basic <strong>primitives</strong> to compose a blockchain with your desired features</li>
-<li>Several <strong>binaries</strong>, both necessary and optional, that you can run or build from source</li>
-</ol>
-<p>There's definitely a lot more to Substrate, but for the purposes of this explanation we'll only
-cover the parts that <code>offchain::ipfs</code> augments. At a very high level, we modeled this implementation
-after the existing <a href="https://github.com/paritytech/substrate/blob/master/client/offchain/src/api/http.rs"><code>offchain::http</code></a> module. You can look that over to get a sense of how it all
-works, or read on for more detail.</p>
-<p>From here on, most of the links will be to code points within the <a href="https://github.com/uddugteam/substrate/tree/offchain-ipfs-v0.3"><code>offchain_ipfs</code></a> branch of the
-<code>offchain::ipfs</code> repo.</p>
-<h2 id="offchainipfs-lifecycle"><a class="header" href="#offchainipfs-lifecycle"><code>offchain::ipfs</code> lifecycle</a></h2>
-<ol>
-<li>
-<p>User runs one of the binaries, <a href="https://github.com/uddugteam/substrate/tree/offchain-ipfs-v0.3/bin/node/cli"><code>node</code></a>, or <a href="https://github.com/uddugteam/substrate/tree/offchain-ipfs-v0.3/bin/node-template"><code>node-template</code></a> which launches a Substrate runtime.</p>
-</li>
-<li>
-<p>If the offchain worker is enabled in the configuration, a secondary runtime will start in both
-the <a href="https://github.com/uddugteam/substrate/blob/offchain_ipfs-v0.3/client/service/src/builder.rs#L266">full client</a> and <a href="https://github.com/uddugteam/substrate/blob/offchain_ipfs-v0.3/client/service/src/builder.rs#L333">light client</a> to power the IPFS node.</p>
-</li>
-<li>
-<p>The client will use <a href="https://github.com/uddugteam/substrate/blob/offchain_ipfs-v0.3/client/offchain/src/api/ipfs.rs#L69"><code>IpfsApi</code></a> and <a href="https://github.com/uddugteam/substrate/blob/offchain_ipfs-v0.3/client/offchain/src/api/ipfs.rs#L249"><code>IpfsWorker</code></a> to expose its functionality
-to any pallets that wish to access it, via <a href="https://github.com/uddugteam/substrate/blob/offchain_ipfs-v0.3/client/offchain/src/api.rs#L189"><code>ipfs_request_start</code></a> and <a href="https://github.com/uddugteam/substrate/blob/offchain_ipfs-v0.3/client/offchain/src/api.rs#L193"><code>ipfs_request_wait</code></a>.
-These calls will utilize the types explained below.</p>
-</li>
-<li>
-<p>If your node is configured to processes user input via a pallet, then users will make requests,
-typically in the form of <strong><a href="hthttps://github.com/uddugteam/substrate/blob/offchain_ipfs-v0.3/client/offchain/src/api/ipfs.rs#L249tps://substrate.dev/docs/en/knowledgebase/learn-substrate/extrinsics">extrinsics</a></strong> called via JSON-RPC. A typical successful call goes
-something like:</p>
-<ol>
-<li>The JSON-RPC server in the substrate node will recieve the call and it will be the dispatched
-to the relevant pallet.</li>
-<li>The pallet may store the calls in a queue to be handled later, or immediate create a valid
-<code>IpfsRequest</code> with the call argument(s).</li>
-<li>An Offchain Worker starts on each block import to handle the request to the IPFS node with its
-exposed APIs.</li>
-<li>When the IPFS node respond to the requests, the response is registered at the APIs as a
-<code>IpfsResponse</code>. The offchain worker stops.</li>
-<li>The response can be used to update a chain state through signed or unsigned transaction or be
-used in the rest of the call's logic.</li>
-</ol>
-</li>
-</ol>
-<h2 id="primitive-types"><a class="header" href="#primitive-types">Primitive Types</a></h2>
-<p>Offchain::ipfs adds the following types used in the substrate runtime and the offchain workers. It
-is useful to explore some core types as they indicate the existing offchain::ipfs functions and
-where to modify to add new functions to interact with IPFS.</p>
-<blockquote>
-<p><strong>Development Tip:</strong></p>
-<p>In fact, you can let the <code>rustc</code> do a lot of work for you! By simply adding, changing, or
-removing types from the following enums, you will get helpful errors telling you where else you
-need to change your code to satisfy the compiler.</p>
-</blockquote>
-<h3 id="ipfsrequest"><a class="header" href="#ipfsrequest"><code>IpfsRequest</code></a></h3>
-<p>An enum that represents a request to the IPFS node.</p>
-<ul>
-<li><code>Addrs</code> - Get the list of node's peerIds and addresses.</li>
-<li><code>AddBytes(Vec&amp;lt;u8&amp;gt;)</code> - Add the given bytes to the IPFS repo</li>
-<li><code>AddListeningAddr(OpaqueMultiaddr)</code> - Add an address to listen on.</li>
-<li><code>BitswapStats</code> - Get the bitswap stats of the node.</li>
-<li><code>CatBytes(Vec&lt;u8&gt;)</code> - Get bytes with the given Cid from the IPFS repo and display them.</li>
-<li><code>Connect(OpaqueMultiaddr)</code> - Connect to an external IPFS node with the specified Multiaddr.</li>
-<li><code>Disconnect(OpaqueMultiaddr)</code> - Disconnect from an external IPFS node with the specified Multiaddr.</li>
-<li><code>GetBlock(Vec&lt;u8&gt;)</code> - Obtain an IPFS block.</li>
-<li><code>FindPeer(Vec&lt;u8&gt;)</code> - Find the addresses related to the given PeerId.</li>
-<li><code>GetClosestPeers(Vec&lt;u8&gt;)</code> - Get a list of PeerIds closest to the given PeerId.</li>
-<li><code>GetProviders(Vec&lt;u8&gt;)</code> - Find the providers for the given Cid.</li>
-<li><code>Identity</code> - Get the node's public key and dedicated external addresses.</li>
-<li><code>InsertPin(Vec&lt;u8&gt;, bool)</code> - Pins a given Cid recursively or directly (non-recursively)</li>
-<li><code>LocalAddrs</code> - Get the list of node's local addresses.</li>
-<li><code>LocalRefs</code> - Get the list of <code>Cid</code>s of blocks known to a node.</li>
-<li><code>Peers</code> - Obtain the list of node's peers.</li>
-<li><code>Publish</code> - Publish a given message to a topic.
-<ul>
-<li><code>topic: Vec&lt;u8&gt;</code> - The topic to publish the message to.</li>
-<li><code>message: Vec&lt;u8&gt;</code> - The message to publish.</li>
-</ul>
-</li>
-<li><code>RemoveBlock(Vec&lt;u8&gt;)</code> - Remove a block from the ipfs repo. A pinned block cannot be removed.</li>
-<li><code>RemoveListeningAddr(OpaqueMultiaddr)</code> - Remove an address that is listened on.</li>
-<li><code>RemovePin(Vec&lt;u8&gt;, bool)</code> - Unpins a given Cid recursively or only directly.</li>
-<li><code>Subscribe(Vec&lt;u8&gt;)</code> - Subscribe to a given topic.</li>
-<li><code>SubscriptionList</code> - Obtain the list of currently subscribed topics.</li>
-<li><code>Unsubscribe(Vec&lt;u8&gt;)</code> - Unsubscribe from a given topic.</li>
-</ul>
-<h3 id="ipfsresponse"><a class="header" href="#ipfsresponse"><code>IpfsResponse</code></a></h3>
-<p>An enum that represents a response from the IPFS node.</p>
-<ul>
-<li><code>Addrs(Vec&lt;(Vec&lt;u8&gt;, Vec&lt;OpaqueMultiaddr&gt;)&gt;)</code> - A list of pairs of node's peers and
-their known addresses.</li>
-<li><code>AddBytes(Vec&lt;u8&gt;)</code> - The Cid of the added bytes.</li>
-<li><code>BitswapStats</code> - A collection of node stats related to the bitswap protocol.
-<ul>
-<li><code>blocks_sent: u64</code> - The number of blocks sent.</li>
-<li><code>data_sent: u64</code> - The number of bytes sent.</li>
-<li><code>blocks_received: u64</code> - The number of blocks received.</li>
-<li><code>data_received: u64</code> - The number of bytes received.</li>
-<li><code>dup_blks_received: u64</code> - The number of duplicate blocks received.</li>
-<li><code>dup_data_received: u64</code> - The number of duplicate bytes received.</li>
-<li><code>peers: Vec&lt;Vec&lt;u8&gt;&gt;</code> - The list of peers.</li>
-<li><code>wantlist: Vec&lt;(Vec&lt;u8&gt;, i32)&gt;</code> - The list of wanted CIDs and their bitswap priorities.</li>
-</ul>
-</li>
-<li><code>CatBytes(Vec&lt;u8&gt;)</code> - The data received from IPFS.</li>
-<li><code>FindPeer(Vec&lt;OpaqueMultiaddr&gt;)</code> - A list of addresses known to be related to a PeerId.</li>
-<li><code>GetClosestPeers(Vec&lt;Vec&lt;u8&gt;&gt;)</code> - The list of PeerIds closest to the given PeerId.</li>
-<li><code>GetProviders(Vec&lt;Vec&lt;u8&gt;&gt;)</code> - A list of PeerIds known to provide the given Cid.</li>
-<li><code>Identity(Vec&lt;u8&gt;, Vec&lt;OpaqueMultiaddr&gt;)</code> - The local node's public key and the externally
-visible and listened to addresses.</li>
-<li><code>LocalAddrs(Vec&lt;OpaqueMultiaddr&gt;)</code> - A list of local node's externally visible and listened to addresses.</li>
-<li><code>LocalRefs(Vec&lt;Vec&lt;u8&gt;&gt;)</code> - A list of locally available blocks by their Cids.</li>
-<li><code>Peers(Vec&lt;OpaqueMultiaddr&gt;)</code> - The list of currently connected peers.</li>
-<li><code>RemoveBlock(Vec&lt;u8&gt;)</code> - The Cid of the removed block.</li>
-<li><code>Success</code> - A request was processed successfully and there is no extra value to return.</li>
-</ul>
-<h3 id="ipfsrequeststatus"><a class="header" href="#ipfsrequeststatus"><code>IpfsRequestStatus</code></a></h3>
-<p>An enum that represents the status of an IPFS request.</p>
-<ul>
-<li><code>DeadlineReached</code> - Deadline was reached while we waited for this request to finish.</li>
-<li><code>IoError(Vec&lt;u8&gt;)</code> - An error has occurred during the request, for example a timeout or the remote
-has closed our socket.</li>
-<li><code>Invalid</code> - The passed ID is invalid in this context.</li>
-<li><code>Finished(IpfsResponse)</code> - The request has finished successfully.</li>
-</ul>
-<h3 id="ipfserror"><a class="header" href="#ipfserror"><code>IpfsError</code></a></h3>
-<p>An enum that enumerates types of errors returned from the IPFS node.</p>
-<ul>
-<li><code>DeadlineReached = 1</code> - The requested action couldn't been completed within a deadline.</li>
-<li><code>IoError = 2</code> - There was an IO Error while processing the request.</li>
-<li><code>Invalid = 3</code> - The ID of the request is invalid in this context.</li>
-</ul>
-<p>We hope this has been a helpful overview of the core modifications that we made to Substrate in
-order to enable embedded IPFS functionality. If you have questions, or if you're ready to jump in
-and contribute, or if you're ready to build your own <code>offchain::ipfs</code>-powered dApp, read on.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="testing"><a class="header" href="#testing">Testing</a></h1>
 <p>For application testing just run:</p>
 <pre><code class="language-bash"># Build substrate and run unit &amp; integration tests
 $ TRYBUILD=overwrite cargo test
 </code></pre>
 <p>For manual testing please use out <a href="./getting-started.html">Getting started guide</a></p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="contributing--development"><a class="header" href="#contributing--development">Contributing / Development</a></h1>
-<p>There are several ways that people can help <code>offchain::ipfs</code>.</p>
-<h2 id="create-a-dapp-or-a-custom-substrate-pallet-and-tell-us-about-it"><a class="header" href="#create-a-dapp-or-a-custom-substrate-pallet-and-tell-us-about-it">Create a dApp or a custom Substrate pallet, and tell us about it</a></h2>
-<p>Now that the proof-of-concept is complete and this manual is published, our goal is to be
-laser-focused on user needs and to extend the capabilities of <code>offchain::ipfs</code> based on them.
-So, <strong>if you end up trying this out, we would love to know how, and what your use case is.</strong></p>
-<ul>
-<li>Tell us about what you're doing by opening an information issue at <a href="https://github.com/uddugteam/substrate">rs-ipfs/substrate</a></li>
-<li>Share feedback on this manual by opening an issue at <a href="https://github.com/uddugteam/offchain-ipfs-manual">rs-ipfs/offchain-ipfs-manual</a></li>
-<li>provide feedback on <code>offchain::ipfs</code> itself by opening an issue at <a href="https://github.com/uddugteam/substrate">rs-ipfs/substrate</a></li>
-</ul>
-<h2 id="implement-more-ipfs-functionality"><a class="header" href="#implement-more-ipfs-functionality">Implement more IPFS functionality</a></h2>
-<p>Some of the functionality that exists in <a href="https://github.com/uddugteam/rust-ipfs">Rust IPFS</a> is not exposed via <code>offchain::ipfs</code>, and some
-of the IPFS functionalities are not implemented in Rust IPFS at all. If there's something that another
-IPFS implementation does that you'd like offchain::ipfs to do, let us know or take a crack at
-implementing it yourself.</p>
-<ul>
-<li>Submit ideas for <code>offchain::ipfs</code> at <a href="https://github.com/uddugteam/substrate">rs-ipfs/substrate</a>.</li>
-</ul>
 
                     </main>
 
