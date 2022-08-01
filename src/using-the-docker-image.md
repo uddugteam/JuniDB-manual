@@ -1,19 +1,16 @@
 # Using the Docker image
 
-The recommended way to use `offchain::ipfs` is via the [andskur/substrate-offchain-ipfs] image.
-
-[andskur/substrate-offchain-ipfs]: https://hub.docker.com/r/andskur/substrate-offchain-ipfs
+The recommended way to use `JuniDB` is via the [docker] image.
 
 ## Installing the image
 
 ```bash
 # Pull the image from Docker Hub
-$ docker pull andskur/substrate-offchain-ipfs
+$ docker pull andskur/juni-db:latest
 ```
 
-The image comes with binary. The `substrate` binary does not have our custom
-pallets to interact with the IPFS node,
-instead you can connect to it through its multiaddr.
+The image comes with binary. The `substrate` binary does not have our [offchain-ipfs]
+pallets to interact with the IPFS node, instead you can connect to it through its multiaddr.
 
 The image exposes ports `9944` for WebSockets, `9933` for RPC, `30333` for p2p, and `9615` for
 Prometheus.
@@ -34,7 +31,7 @@ docker run -p 9944:9944 \
   -it \
   --rm \
   --name node-template \
-  andskur/substrate-offchain-ipfs:latest
+  andskur/juni-db:latest
 ```
 
 This will work with any arguments you'd normally pass to `substrate`
@@ -44,7 +41,11 @@ This will work with any arguments you'd normally pass to `substrate`
 To run with persistent storage volume between containers, first create a volume:
 
 ```bash
-docker volume create offchain-ipfs-vol
+docker volume create junidb-vol
 ```
 
-Then add `-v offchain-ipfs-vol:/substrate-offchain-ipfs` to the docker run commands above.
+Then add `-v junidb-vol:/junidb` to the docker run commands above.
+
+
+[docker]: https://hub.docker.com/repository/docker/andskur/juni-db
+[offchain-ipfs]: https://github.com/uddugteam/substrate/tree/offchain-ipfs-v0.3
